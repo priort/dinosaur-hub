@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dinosaur-info-deployment
+spec:
+  selector:
+    matchLabels:
+      app: dinasour-info-service
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: dinasour-info-service
+    spec:
+      containers:
+        - name: dinasour-info-service
+          image: priordt/dinosaur-info
+          ports:
+            - containerPort: 8084
+
